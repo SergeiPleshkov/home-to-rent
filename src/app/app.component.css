@@ -1,0 +1,11 @@
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+a:hover {
+    text-decoration: none;
+}
+label {
+    width: 50%;
+}

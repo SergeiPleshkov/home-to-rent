@@ -1,0 +1,14 @@
+<form [formGroup]="initialForm" (submit)="onSubmit()" class="form-group row" style="padding-top: 10px">
+  <div class="col-2 offset-3" style="flex-flow: row; display: flex" >
+  <label> Buy
+    <input type="radio" value="buy" formControlName="listing_type">
+  </label>
+  <label> Rent
+    <input type="radio" value="rent" formControlName="listing_type">
+  </label>
+</div>
+    <input type="text" formControlName="place_name" class="col-3">
+  <button type="submit" class="col-1">Get list</button>
+</form>
+<app-list-item *ngFor="let listItem of list" [item]="listItem"></app-list-item>
+<button *ngIf="list" (click)="addMoreItems()" class="btn offset-5">Get more</button>

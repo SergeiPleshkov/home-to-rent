@@ -3,4 +3,16 @@
     <h2 style="color:antiquewhite;">Home to rent</h2>
   </a>
 </div>
+<form [formGroup]="initialForm" (submit)="onSubmit()" class="form-group row" style="padding-top: 10px">
+  <div class="col-2 offset-3" style="flex-flow: row; display: flex">
+    <label> Buy
+      <input type="radio" value="buy" formControlName="listingType">
+    </label>
+    <label> Rent
+      <input type="radio" value="rent" formControlName="listingType">
+    </label>
+  </div>
+  <input type="text" formControlName="placeName" class="col-3">
+  <button type="submit" class="col-1">Get list</button>
+</form>
 <router-outlet></router-outlet>

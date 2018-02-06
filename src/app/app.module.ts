@@ -12,12 +12,10 @@ import { ForSaleComponent } from './aside/for-sale/for-sale.component';
 import { FormsModule } from "@angular/forms";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Routes, RouterModule } from '@angular/router';
-import { InitialStateComponent } from './initial-state/initial-state.component';
-import { HeaderComponent } from './header/header.component'
+import { SharedService } from './shared.service';
 
 const appRoutes: Routes = [
-  { path: '', component: InitialStateComponent },
-  { path: 'list', component: ListComponent },
+  { path: '', component: ListComponent },
   { path: 'map', component: MapComponent }
 ];
 
@@ -28,9 +26,7 @@ const appRoutes: Routes = [
     MapComponent,
     ListComponent,
     ListItemComponent,
-    ForSaleComponent,
-    InitialStateComponent,
-    HeaderComponent
+    ForSaleComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -40,7 +36,7 @@ const appRoutes: Routes = [
     NgbModule.forRoot(),
     RouterModule.forRoot(appRoutes),
   ],
-  providers: [],
+  providers: [SharedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

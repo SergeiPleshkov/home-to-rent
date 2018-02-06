@@ -1,19 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Input } from '@angular/core';
-import { InitialStateComponent} from '../../initial-state/initial-state.component'
 
 @Component({
   selector: 'app-list-item',
-  templateUrl: './list-item.component.html',
-  styleUrls: ['./list-item.component.css']
+  templateUrl: './list-item.component.html'
 })
 
 export class ListItemComponent{
-  @Input () item: any;
+  @Input () item: object;
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor() {
   }
-
-}
+ }

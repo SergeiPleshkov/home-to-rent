@@ -4,31 +4,27 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { ListItemComponent } from './list/list-item/list-item.component'
 import { HttpHeaders } from '@angular/common/http/src/headers';
 import { HttpParams } from '@angular/common/http/src/params';
-import { SharedService } from './shared.service'
+import { ListComponent } from './list/list.component'
 
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-  providers: [SharedService]
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
   initialForm: FormGroup;
-  list: object[];
-  listItem: object;
-  page: number;
+  list: object[] = [];
+  totalPages: number;  
+  page: number = 1;
   constructor(private http: HttpClient,
-    private fb: FormBuilder,
-    public ss: SharedService) {
-    }
+    private fb: FormBuilder) {
+  }
 
   ngOnInit() {
     this.initForm();
   }
   onSubmit() {
-    this.list = []
-    this.page = 1;
     this.makeListArray();
   }
 
@@ -40,7 +36,7 @@ export class AppComponent implements OnInit {
   }
 
   makeListArray() {
-
+    console.log(this.page, "this.page in makeListArr()")
     let queryParams = {
       encoding: 'json',
       pretty: '1',
@@ -54,16 +50,22 @@ export class AppComponent implements OnInit {
     };
 
     this.http.get('http://api.nestoria.co.uk/api', { params: queryParams }).subscribe(response => {
-      if (this.list[0] && !this.list[0]['listing_type'] !== this.initialForm.value.listingType) this.list = []
+      // if (this.list[0] && !this.list[0]['listing_type'] !== this.initialForm.value.listingType) this.list = [];
+      this.list = []
       response['response']['listings'].forEach(el => this.list.push(el));
-      this.ss.list = this.list;
-      console.log(this.list, this.ss.list)
+      // this.list = [] = response['response']['listings']
+      this.totalPages = response['response']['total_pages'];
+
+      console.log(this.totalPages, this.page, this.list)
     });
   }
 
-  addMoreItems() {
-    this.page++;
+
+  selectPage(param:number) {
+    console.log(param, "recieved")
+    if (param > this.totalPages  || param < 1) return;
+    this.page = param;
+    console.log(this.page, "this.page")
     this.makeListArray()
   }
-
 }

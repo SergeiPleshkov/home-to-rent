@@ -4,15 +4,15 @@
   </a>
 </div>
 <form [formGroup]="initialForm" (submit)="onSubmit()" class="form-group row" style="padding-top: 10px">
-  <div class="col-2 offset-3" style="flex-flow: row; display: flex">
-    <label> Buy
-      <input type="radio" value="buy" formControlName="listingType">
+  <div class="col-2 offset-3" style="flex-flow: row; display: flex; padding: 0">
+    <label class="btn btn-primary col-6"> Buy
+      <input style="display: none" type="radio" value="buy" formControlName="listingType">
     </label>
-    <label> Rent
-      <input type="radio" value="rent" formControlName="listingType">
+    <label class="btn btn-primary col-6"> Rent
+      <input style="display: none" type="radio" value="rent" formControlName="listingType">
     </label>
   </div>
   <input type="text" formControlName="placeName" class="col-3">
-  <button type="submit" class="col-1">Get list</button>
+  <button type="submit" class="col-1 btn btn-primary">Get list</button>
 </form>
-<router-outlet></router-outlet>
+<app-list (onChanged)="selectPage($event)" [listArr]="list" [currentPage]="page"></app-list>

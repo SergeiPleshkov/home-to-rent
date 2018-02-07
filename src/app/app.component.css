@@ -8,4 +8,9 @@ a:hover {
 }
 label {
     width: 50%;
+    margin-bottom: 0;
+}
+
+.btn {
+    border-color: white;
 }

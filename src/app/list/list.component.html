@@ -1,3 +1,4 @@
 <app-list-item *ngFor="let listItem of listArr" [item]="listItem">
 </app-list-item>
-<button *ngIf="listArr[1]" (click)="turnPage(currentPage)" class="btn btn-primary offset-5">Get more</button>
+<button *ngIf="listArr[1]" (click)="turnPage(prev)" class="btn btn-primary offset-5">Prev</button>
+<button *ngIf="listArr[1]" (click)="turnPage(next)" class="btn btn-primary">Next</button>

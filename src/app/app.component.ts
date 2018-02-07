@@ -50,13 +50,9 @@ export class AppComponent implements OnInit {
     };
 
     this.http.get('http://api.nestoria.co.uk/api', { params: queryParams }).subscribe(response => {
-      // if (this.list[0] && !this.list[0]['listing_type'] !== this.initialForm.value.listingType) this.list = [];
       this.list = []
       response['response']['listings'].forEach(el => this.list.push(el));
-      // this.list = [] = response['response']['listings']
       this.totalPages = response['response']['total_pages'];
-
-      console.log(this.totalPages, this.page, this.list)
     });
   }
 

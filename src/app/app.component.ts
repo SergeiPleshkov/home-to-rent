@@ -4,7 +4,8 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { ListItemComponent } from './list/list-item/list-item.component'
 import { HttpHeaders } from '@angular/common/http/src/headers';
 import { HttpParams } from '@angular/common/http/src/params';
-import { ListComponent } from './list/list.component'
+import { ListComponent } from './list/list.component';
+import { LoadingComponent} from './loading/loading.component'
 
 
 @Component({
@@ -13,6 +14,7 @@ import { ListComponent } from './list/list.component'
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  loading: boolean = false;
   initialForm: FormGroup;
   list: object[] = [];
   totalPages: number;
@@ -47,11 +49,12 @@ export class AppComponent implements OnInit {
       language: 'en',
       place_name: this.initialForm.value.placeName
     };
-
+    this.loading = true;
     this.http.get('http://api.nestoria.co.uk/api', { params: queryParams }).subscribe(response => {
       this.list = []
       response['response']['listings'].forEach(el => this.list.push(el));
       this.totalPages = response['response']['total_pages'];
+      this.loading = false;
     });
   }
 

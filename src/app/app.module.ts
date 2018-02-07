@@ -10,6 +10,8 @@ import { ListItemComponent } from './list/list-item/list-item.component';
 import { ForSaleComponent } from './aside/for-sale/for-sale.component';
 import { FormsModule } from "@angular/forms";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PaginatorComponent } from './list/paginator/paginator.component';
+import { LoadingComponent } from './loading/loading.component';
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AsideComponent,
     ListComponent,
     ListItemComponent,
-    ForSaleComponent
+    ForSaleComponent,
+    PaginatorComponent,
+    LoadingComponent
   ],
   imports: [
     ReactiveFormsModule,

@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { ListItemComponent } from './list-item/list-item.component'
+import { ListItemComponent } from './list-item/list-item.component';
+import { PaginatorComponent } from './paginator/paginator.component';
 import { Input } from '@angular/core';
 
 @Component({

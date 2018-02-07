@@ -1,4 +1,11 @@
 <app-list-item *ngFor="let listItem of listArr" [item]="listItem">
 </app-list-item>
-<button *ngIf="listArr[1]" (click)="turnPage(prev)" class="btn btn-primary offset-5">Prev</button>
-<button *ngIf="listArr[1]" (click)="turnPage(next)" class="btn btn-primary">Next</button>
+<div style="margin-left: auto; margin-right: auto; display: flex; flex-flow: row; justify-content: center;">
+  <button *ngIf="listArr[1]" [ngClass]="{'btn-primary': currentPage > 1}" (click)="turnPage(prev)" class="btn">Prev</button>
+  <div *ngIf="listArr[1]" class="form-group" style="display: flex; flex-flow: row">
+    <div *ngFor="let val of paginatorArr">
+      <button class="btn pgs-btn" *ngIf="val > 0" [ngClass]="{'btn-primary':val == currentPage}" (click)="turnPage(val)">{{val}}</button>
+    </div>
+  </div>
+  <button *ngIf="listArr[1]" (click)="turnPage(next)" class="btn btn-primary">Next</button>
+</div>

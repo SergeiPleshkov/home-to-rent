@@ -15,7 +15,7 @@ import { ListComponent } from './list/list.component'
 export class AppComponent implements OnInit {
   initialForm: FormGroup;
   list: object[] = [];
-  totalPages: number;  
+  totalPages: number;
   page: number = 1;
   constructor(private http: HttpClient,
     private fb: FormBuilder) {
@@ -36,7 +36,6 @@ export class AppComponent implements OnInit {
   }
 
   makeListArray() {
-    console.log(this.page, "this.page in makeListArr()")
     let queryParams = {
       encoding: 'json',
       pretty: '1',
@@ -57,11 +56,10 @@ export class AppComponent implements OnInit {
   }
 
 
-  selectPage(param:number) {
-    console.log(param, "recieved")
-    if (param > this.totalPages  || param < 1) return;
+  selectPage(param: number) {
+    if (param > this.totalPages || param < 1) return;
     this.page = param;
-    console.log(this.page, "this.page")
-    this.makeListArray()
+    this.makeListArray();
+    window.scrollTo(0, 0);
   }
 }

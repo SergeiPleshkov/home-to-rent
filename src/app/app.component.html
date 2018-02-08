@@ -5,10 +5,10 @@
 </div>
 <form [formGroup]="initialForm" (submit)="onSubmit()" class="form-group row" style="padding-top: 10px; margin: 0px; margin-bottom: 15px;">
   <div class="col-2 offset-3" style="flex-flow: row; display: flex; padding: 0">
-    <label class="btn btn-primary col-6"> Buy
+    <label class="btn btn-primary col-6" routerLink=""> Buy
       <input style="display: none" type="radio" value="buy" formControlName="listingType">
     </label>
-    <label class="btn btn-primary col-6"> Rent
+    <label class="btn btn-primary col-6" routerLink=""> Rent
       <input style="display: none" type="radio" value="rent" formControlName="listingType">
     </label>
   </div>

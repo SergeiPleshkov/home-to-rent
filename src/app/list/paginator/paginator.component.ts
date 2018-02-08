@@ -8,6 +8,7 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 export class PaginatorComponent implements OnInit {
   next: string = 'next';
   prev: string = 'prev';
+  @Input() total: number;
   @Input() listExists: boolean;
   @Input() currPage: number;
   @Input() pgnArr: number[] = [1, 2, 3, 4, 5];

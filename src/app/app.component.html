@@ -13,8 +13,8 @@
     </label>
   </div>
   <input type="text" formControlName="placeName" class="col-3">
-  <button type="submit" class="col-1 btn btn-primary">Get list</button>
+  <button type="submit" class="col-1 btn btn-primary" routerLink="">Get list</button>
+  <button type="button" class="col-1 btn btn-primary" routerLink="favorites">Favorites</button>
 </form>
-<!-- <app-list (onChanged)="selectPage($event)" ></app-list> -->
 <router-outlet></router-outlet>
 <app-loading *ngIf="data.loading"></app-loading>

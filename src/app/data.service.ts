@@ -38,7 +38,7 @@ export class DataService {
     let queryParams = {
       encoding: 'json',
       pretty: '1',
-      page: this.data.page.toString(),
+      page: (this.data.page + 3).toString(),
       action: 'search_listings',
       country: 'uk',
       number_of_results: '20',

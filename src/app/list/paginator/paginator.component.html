@@ -1,9 +1,9 @@
 <div style="margin-left: auto; margin-right: auto; display: flex; flex-flow: row; justify-content: center;">
-  <button *ngIf="listExists" [ngClass]="{'btn-primary': currPage > 1}" (click)="turnPage(prev)" class="btn">Prev</button>
+  <button *ngIf="listExists && currPage > 1" [ngClass]="{'btn-primary': currPage > 1}" (click)="turnPage(prev)" class="btn">Prev</button>
   <div *ngIf="listExists" class="form-group" style="display: flex; flex-flow: row">
     <div *ngFor="let val of pgnArr">
       <button class="btn pgs-btn" *ngIf="val > 0" [ngClass]="{'btn-primary':val == currPage}" (click)="turnPage(val)">{{val}}</button>
     </div>
   </div>
-  <button *ngIf="listExists" (click)="turnPage(next)" class="btn btn-primary">Next</button>
+  <button *ngIf="listExists && currPage < total" (click)="turnPage(next)" class="btn btn-primary">Next</button>
 </div>

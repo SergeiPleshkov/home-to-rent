@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Input } from '@angular/core';
+import { DataService } from '../../data.service'
 
 @Component({
   selector: 'app-list-item',
@@ -12,7 +13,7 @@ export class ListItemComponent{
   favsArr: object[] = JSON.parse(localStorage.getItem('homeToRentFavs')) || [];
   isFaved: boolean;
 
-  constructor() {
+  constructor(private ds: DataService) {
   }
 
   ngOnInit() {

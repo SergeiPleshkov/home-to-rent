@@ -10,7 +10,7 @@ import { DataService } from '../../data.service'
 
 export class ListItemComponent{
   @Input () item: object;
-  favsArr: object[] = JSON.parse(localStorage.getItem('homeToRentFavs')) || [];
+  favsArr: object[];
   isFaved: boolean;
 
   constructor(private ds: DataService) {
@@ -18,12 +18,14 @@ export class ListItemComponent{
 
   ngOnInit() {
     this.isFaved = localStorage.getItem('homeToRentFavs').includes(JSON.stringify(this.item));
+    this.favsArr= JSON.parse(localStorage.getItem('homeToRentFavs')) || [];
   }
+
   toggleClass(e) {
     e.target.classList.toggle('added-to-favs');
   }
   toggleFavs(item, event) {
-    if (!this.favsArr.includes(this.item)) {
+    if (!localStorage.getItem('homeToRentFavs').includes(JSON.stringify(this.item))) {
       this.favsArr.push(this.item);
       localStorage.setItem('homeToRentFavs', JSON.stringify(this.favsArr));
       this.toggleClass(event);

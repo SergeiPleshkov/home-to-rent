@@ -14,6 +14,7 @@ export class ListComponent {
   listItem: object;
   next: string = 'next';
   prev: string = 'prev';
+  @Input() load: boolean;
   @Input() listArr: object[];
   @Input() currentPage: number;
   @Input() paginatorArr: number[] = [1, 2, 3, 4, 5];

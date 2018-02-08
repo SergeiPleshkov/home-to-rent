@@ -25,6 +25,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.initForm();
+    this.makeListArray(); //for debug, remove later
   }
   onSubmit() {
     this.makeListArray();

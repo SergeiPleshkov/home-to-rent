@@ -1,4 +1,6 @@
 <app-paginator [listExists]="!!listArr[1]" [currPage]="currentPage" [pgnArr]="paginatorArr" (onTurn)="turnPage($event)"></app-paginator>
+<div *ngIf="!load">
 <app-list-item *ngFor="let listItem of listArr" [item]="listItem">
 </app-list-item>
-<app-paginator [listExists]="!!listArr[1]" [currPage]="currentPage" [pgnArr]="paginatorArr" (onTurn)="turnPage($event)"></app-paginator>
+</div>
+<app-paginator  *ngIf="!load" [listExists]="!!listArr[1]" [currPage]="currentPage" [pgnArr]="paginatorArr" (onTurn)="turnPage($event)"></app-paginator>

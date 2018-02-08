@@ -15,5 +15,6 @@
   <input type="text" formControlName="placeName" class="col-3">
   <button type="submit" class="col-1 btn btn-primary">Get list</button>
 </form>
-<app-list [load]="loading" (onChanged)="selectPage($event)" [listArr]="list" [currentPage]="page"></app-list>
-<app-loading *ngIf="loading"></app-loading>
+<!-- <app-list (onChanged)="selectPage($event)" ></app-list> -->
+<router-outlet></router-outlet>
+<app-loading *ngIf="data.loading"></app-loading>

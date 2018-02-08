@@ -26,14 +26,12 @@ export class ListItemComponent{
       this.favsArr.push(this.item);
       localStorage.setItem('homeToRentFavs', JSON.stringify(this.favsArr));
       this.toggleClass(event);
-      console.log('added, ls = ', localStorage.getItem('homeToRentFavs'))
     } else {
       for (let i = 0; i < this.favsArr.length; i++) {
         if (JSON.stringify(this.favsArr[i]) === JSON.stringify(this.item)) {
           this.favsArr.splice(i, 1);
           localStorage.setItem('homeToRentFavs', JSON.stringify(this.favsArr));
           this.toggleClass(event);
-          console.log('removed, ls = ', localStorage.getItem('homeToRentFavs'))
           return;
         } 
       }
